@@ -15,9 +15,9 @@
 
 
 int main(int argc, char *argv[]) {
-    if (argc < 1) {
+    if (argc < 2) {
         printf("Version: %s\n", VERSION);
-        printf("Usage: %s -g <command>\n", argv[0]);
+        printf("Usage: sysx <command> <args>\n");
         return 1;
     }
     else if (strcmp(argv[1], "stat") == 0) {
