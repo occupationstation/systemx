@@ -1,16 +1,30 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 #include "functionobj.h"
 #include "../platformobj/platform.h"
 
+enum statCategory;
+struct StatInfo;
+
 //Everything is a dry run right now.
-struct StatInfo getStat(char **args, int num_args) {
-   if (num_args > 0) {printf("No advanced data available now!\n");}
-   if (num_args == 0) {
-   		double* loadavg = NULL;
-   		loadavg = sysxloadavg();
-   		printf("Load Average: %.2f %.2f %.2f\n", loadavg[0], loadavg[1], loadavg[2]);
-   }   
+void* getStat(int category) {
+	if (category == NONE) {
+		struct StatInfo* stat = malloc(sizeof(struct StatInfo));
+		if (stat == NULL) {
+		        // Handle memory allocation error
+		        // You can return an error code or take appropriate action
+		    return NULL;
+		}
+		stat->loadAvg = sysxloadavg();
+		return stat;
+	}
+	if (category == CPU) {
+		
+	}
+	if (category == MEMORY) {
+		
+	}
 }

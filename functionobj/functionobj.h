@@ -1,9 +1,15 @@
 
-struct StatInfo getStat(char **args, int num_args);
+void* getStat(int category);
+
+enum statCategory {
+	NONE,
+	CPU,
+	MEMORY
+};
 
 struct StatInfo {
-    char* uptime;
+    double* uptime;
     char* memoryUse;
-    char* loadAvg;
+    double* loadAvg;
     char* swapUse;
 };

@@ -12,7 +12,7 @@
 
 #define VERSION "PRE ALPHA 0.0"
 
-struct StatInfo getStat(char **args, int num_args);
+
 
 int main(int argc, char *argv[]) {
     if (argc < 1) {
@@ -22,7 +22,8 @@ int main(int argc, char *argv[]) {
     }
     else if (strcmp(argv[1], "stat") == 0) {
 // Call your "getStat" function with the remaining arguments
-        getStat(argv + 2, argc - 2);
+        struct StatInfo* result = getStat(NONE);
+        printf("Just a load average for now: %.2f %.2f %.2f \n", result->loadAvg[0], result->loadAvg[1], result->loadAvg[2]);
         return 0;
     }
     else if (strcmp(argv[1], "passwd") == 0) {
