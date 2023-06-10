@@ -18,7 +18,7 @@ void* getStat(int category) {
 		        // You can return an error code or take appropriate action
 		    return NULL;
 		}
-		stat->loadAvg = sysxloadavg();
+		sysxloadavg(stat->loadAvg);
 		return stat;
 	}
 	if (category == CPU) {

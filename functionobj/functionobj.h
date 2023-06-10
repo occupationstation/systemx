@@ -8,8 +8,8 @@ enum statCategory {
 };
 
 struct StatInfo {
-    double* uptime;
+    int uptime;
     char* memoryUse;
-    double* loadAvg;
+    double loadAvg[3];
     char* swapUse;
 };
