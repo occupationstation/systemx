@@ -1,9 +1,10 @@
 //This object provides functions that perform standard POSIX operations.
-#include "platform.h"
+#include "../platform.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/time.h>
 
-	void sysxloadavg(double loadavg[3]) {
+	void posix_loadavg(double loadavg[3]) {
 		
 		int result = getloadavg(loadavg, 3);
 		if (result == -1) {
@@ -14,11 +15,7 @@
 		
 	}
 
-	void sysxuptime(int uptime) {
-		
-	}
-
-	int sysxpasswd() {
+	int posix_passwd() {
 		system("passwd");
 		return 0;
 	}
